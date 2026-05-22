@@ -37,6 +37,11 @@ public class GunSystem : MonoBehaviour
 
     private void Awake()
     {
+        camShake = GameObject.Find("PlayerCam").GetComponent<CameraShake>();
+        magText = GameObject.Find("Counter").GetComponent<TextMeshProUGUI>();
+        reloadingText = GameObject.Find("Reloading").GetComponent<TextMeshProUGUI>();
+        fpsCam = GameObject.Find("PlayerCam").GetComponent<Camera>();
+
         bulletsLeft = magazineSize;
         readyToShoot = true;
         reloadingText.enabled = false;
