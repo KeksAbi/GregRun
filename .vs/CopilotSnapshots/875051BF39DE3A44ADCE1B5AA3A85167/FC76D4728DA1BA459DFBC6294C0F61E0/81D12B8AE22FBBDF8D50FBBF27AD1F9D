@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -34,8 +34,6 @@ public class GunSystem : MonoBehaviour
     public KeyCode ShootKey = KeyCode.Mouse0;
     public KeyCode ReloadKey = KeyCode.R;
 
-
-    private string GunName => gameObject.name.Replace("(Clone)", "").Trim();
 
     private void Awake()
     {
@@ -91,7 +89,7 @@ public class GunSystem : MonoBehaviour
             else
             {
                 // Play empty magazine sound
-                SoundCaller.PlaySound(GunName, "empty", attackPoint.position);
+                SoundCaller.PlaySound(gameObject.name, "empty", attackPoint.position);
             }
         }
     }
@@ -129,7 +127,7 @@ public class GunSystem : MonoBehaviour
         Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         //Play Shoot Sound
-        SoundCaller.PlaySound(GunName, "shoot", attackPoint.position);
+        SoundCaller.PlaySound(gameObject.name, "shoot", attackPoint.position);
 
 
         bulletsLeft--;
@@ -150,7 +148,7 @@ public class GunSystem : MonoBehaviour
     {   if (!reloading)
         {
             reloading = true;
-            SoundCaller.PlaySound(GunName, "reload", attackPoint.position);
+            SoundCaller.PlaySound(gameObject.name, "reload", attackPoint.position);
             Invoke("ReloadFinished", reloadTime);
             magText.enabled = false;
             reloadingText.enabled = true;

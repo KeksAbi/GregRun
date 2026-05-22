@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SoundCaller : MonoBehaviour
 {
@@ -18,7 +18,11 @@ public class SoundCaller : MonoBehaviour
 
         if (soundClip == null)
         {
-            Debug.LogWarning($"Sound not found at path: {soundPath}");
+            // List all clips found under Sounds/ for debugging
+            AudioClip[] allClips = Resources.LoadAll<AudioClip>("Sounds");
+            Debug.LogWarning($"Sound not found at path: '{soundPath}' | Total clips in Resources/Sounds: {allClips.Length}");
+            foreach (AudioClip c in allClips)
+                Debug.Log($"  Found clip: {c.name}");
             return;
         }
 

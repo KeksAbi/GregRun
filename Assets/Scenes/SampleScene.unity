@@ -14593,7 +14593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476884435}
   m_Layer: 0
-  m_Name: MainHand
+  m_Name: MainHandPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
