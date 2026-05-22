@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-
     public GameObject InventoryMenu;
     public GameObject EquipmentMenu;
     public GameObject ShopMenu;
@@ -157,7 +156,7 @@ public class InventoryManager : MonoBehaviour
             SkillTreeMenu.SetActive(true);
             NotebookMenu.SetActive(false);
 
-            ButtonPanel.SetActive(true);
+            ButtonPanel.SetActive(false);
 
             InventoryOpen = true;
 

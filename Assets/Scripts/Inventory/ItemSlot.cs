@@ -146,6 +146,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         newItem.sprite = itemSprite;
         newItem.itemGameObject = itemGameObject;
         newItem.itemDescription = itemDescription;
+        newItem.itemType = itemType;
 
         // Create and modify the MR / MF
         MeshRenderer meshRenderer = itemToDrop.AddComponent<MeshRenderer>();

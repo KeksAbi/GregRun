@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
+    private GameObject mainHand;
 
     [Header("Item Data")]
     public string itemName;
@@ -17,6 +18,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public string itemDescription;
     public Sprite emptySprite;
     public ItemType itemType;
+
+    private GameObject ingameItemGameObject;
 
     [Header("Item Slot")]
 
@@ -37,6 +40,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         inventoryManager = GameObject.Find("Inventory - Canvas").GetComponent<InventoryManager>();
         equipmentSOLibrary = GameObject.Find("Inventory - Canvas").GetComponent<EquipmentSOLibrary>();
+        mainHand = GameObject.Find("MainHand");
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, GameObject itemGameObject, string itemDescription, ItemType itemType)
@@ -137,6 +141,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         if (itemType == ItemType.mainHand)
         {
             mainHandSlot.EquipGear(itemSprite, itemName, itemGameObject, itemDescription);
+
+            ingameItemGameObject = Instantiate(itemGameObject, mainHand.transform);
+            ingameItemGameObject.transform.SetParent(mainHand.transform, false);
         }
         if (itemType == ItemType.offHand)
         {
@@ -160,6 +167,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         newItem.sprite = itemSprite;
         newItem.itemGameObject = itemGameObject;
         newItem.itemDescription = itemDescription;
+        newItem.itemType = itemType;
 
         // Create and modify the MR / MF
         MeshRenderer meshRenderer = itemToDrop.AddComponent<MeshRenderer>();
