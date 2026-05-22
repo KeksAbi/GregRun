@@ -1,0 +1,145 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+public class GunSystem : MonoBehaviour
+{
+    [Header("Gun Stats")]
+    public int damage;
+    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public int magazineSize, bulletsPerTap;
+    public bool allowButtonHold;
+    int bulletsLeft, bulletsShot;
+
+
+    [Header("Bools")]
+    bool shooting, readyToShoot, reloading;
+
+
+    [Header("References")]
+    public Camera fpsCam;
+    public Transform attackPoint;
+    public RaycastHit rayHit;
+    public LayerMask whatIsEnemy;
+
+
+    [Header("Graphics")]
+    public GameObject muzzleFlash, bulletHoleGraphic;
+    public CameraShake camShake;
+    public float camShakeMagnitude, camShakeDuration;
+    public TextMeshProUGUI magText;
+    public TextMeshProUGUI reloadingText;
+
+    [Header("Keybinds")]
+    public KeyCode ShootKey = KeyCode.Mouse0;
+    public KeyCode ReloadKey = KeyCode.R;
+
+
+    private void Awake()
+    {
+        bulletsLeft = magazineSize;
+        readyToShoot = true;
+        reloadingText.enabled = false;
+        magText.enabled = true;
+    }
+    private void Update()
+    {
+        MyInput();
+
+
+        //SetText
+        magText.SetText(bulletsLeft + " / " + magazineSize);
+    }
+    private void MyInput()
+    {
+        if (allowButtonHold) shooting = Input.GetKey(ShootKey);
+        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+
+        if (Input.GetKeyDown(ReloadKey) && bulletsLeft < magazineSize && !reloading) Reload();
+
+
+        //Shoot
+        if (readyToShoot && shooting && !reloading)
+        {
+            if (bulletsLeft > 0)
+            {
+                bulletsShot = bulletsPerTap;
+                Shoot();
+            }
+            else
+            {
+                // Play empty magazine sound
+                SoundCaller.PlaySound("empty", attackPoint.position);
+            }
+        }
+    }
+    private void Shoot()
+    {
+        readyToShoot = false;
+
+
+        //Spread
+        float x = Random.Range(-spread, spread);
+        float y = Random.Range(-spread, spread);
+
+
+        //Calculate Direction with Spread
+        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+
+
+        //RayCast
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        {
+            Debug.Log(rayHit.collider.name);
+
+
+            if (rayHit.collider.CompareTag("Enemy"))
+                rayHit.collider.GetComponent<ShootingAi>().TakeDamage(damage);
+        }
+
+
+        //ShakeCamera
+        camShake.Shake(camShakeDuration, camShakeMagnitude);
+
+
+        //Graphics
+        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+
+        //Play Shoot Sound
+        SoundCaller.PlaySound("shoot", attackPoint.position);
+
+
+        bulletsLeft--;
+        bulletsShot--;
+
+
+        Invoke("ResetShot", timeBetweenShooting);
+
+
+        if (bulletsShot > 0 && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweenShots);
+    }
+    private void ResetShot()
+    {
+        readyToShoot = true;
+    }
+    private void Reload()
+    {   if (!reloading)
+        {
+            reloading = true;
+            SoundCaller.PlaySound("reload", attackPoint.position);
+            Invoke("ReloadFinished", reloadTime);
+            magText.enabled = false;
+            reloadingText.enabled = true;
+        }
+    }
+    private void ReloadFinished()
+    {
+        bulletsLeft = magazineSize;
+        reloading = false;
+        magText.enabled = true;
+        reloadingText.enabled = false;
+    }
+}

@@ -1,0 +1,11 @@
+﻿using UnityEngine;
+
+public class SoundCaller : MonoBehaviour
+{
+    public static void PlaySound(string type, Vector3 position)
+    {
+        if (GameObject.Find() 
+        try:
+
+    }
+}

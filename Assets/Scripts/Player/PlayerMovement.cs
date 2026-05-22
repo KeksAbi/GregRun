@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
+    [Header("Acceleration")]
+    public float maxAcceleration = 8f; // Maximum speed
+    public float accelerationRate = 5f; // How fast to reach max speed
+    private float currentSpeed = 0f;
+    public float weightThreshold = 50f; // At 50kg, speed is reduced to 2/3
+
     [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
@@ -97,12 +103,46 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        CalculateAcceleration();
 
         // handle drag
         if (grounded)
             rb.linearDamping = groundDrag;
         else
             rb.linearDamping = 0;
+    }
+
+    private void CalculateAcceleration()
+    {
+        // Calculate weight factor
+        float weightFactor = 1f;
+
+        if (playerMain.playerCurrentWeight >= weightThreshold)
+        {
+            weightFactor = 2f / 3f;
+        }
+        else if (playerMain.playerCurrentWeight > 0)
+        {
+            float weightRatio = playerMain.playerCurrentWeight / weightThreshold;
+            weightFactor = Mathf.Lerp(1f, 2f / 3f, weightRatio);
+        }
+
+        // Target speed based on weight
+        float targetSpeed = maxAcceleration * weightFactor;
+
+        // Check if player is giving movement input
+        bool isMoving = horizontalInput != 0 || verticalInput != 0;
+
+        if (isMoving)
+        {
+            // Smoothly accelerate to target speed
+            currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, accelerationRate * Time.deltaTime);
+        }
+        else
+        {
+            // Decelerate when not moving
+            currentSpeed = Mathf.Lerp(currentSpeed, 0f, accelerationRate * 2f * Time.deltaTime);
+        }
     }
 
     private void FixedUpdate()
@@ -263,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
         // on slope
         if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * currentSpeed, ForceMode.Force);
 
             if (rb.linearVelocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
@@ -271,11 +311,11 @@ public class PlayerMovement : MonoBehaviour
 
         // on ground
         else if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * currentSpeed, ForceMode.Force);
 
         // in air
         else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * currentSpeed * airMultiplier, ForceMode.Force);
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
@@ -283,11 +323,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
+        // Calculate speed with weight factor for max speed limiting
+        float weightFactor = 1f;
+        if (playerMain.playerCurrentWeight >= weightThreshold)
+        {
+            weightFactor = 2f / 3f;
+        }
+        else if (playerMain.playerCurrentWeight > 0)
+        {
+            float weightRatio = playerMain.playerCurrentWeight / weightThreshold;
+            weightFactor = Mathf.Lerp(1f, 2f / 3f, weightRatio);
+        }
+
+        float adjustedMoveSpeed = moveSpeed * weightFactor;
+
         // limiting speed on slope
         if (OnSlope() && !exitingSlope)
         {
-            if (rb.linearVelocity.magnitude > moveSpeed)
-                rb.linearVelocity = rb.linearVelocity.normalized * moveSpeed;
+            if (rb.linearVelocity.magnitude > adjustedMoveSpeed)
+                rb.linearVelocity = rb.linearVelocity.normalized * adjustedMoveSpeed;
         }
 
         // limiting speed on ground or in air
@@ -296,9 +350,9 @@ public class PlayerMovement : MonoBehaviour
             Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
             // limit velocity if needed
-            if (flatVel.magnitude > moveSpeed)
+            if (flatVel.magnitude > adjustedMoveSpeed)
             {
-                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                Vector3 limitedVel = flatVel.normalized * adjustedMoveSpeed;
                 rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
             }
         }

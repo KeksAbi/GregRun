@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerMain : MonoBehaviour
 {
+    [Header("Leveling System")]
+    public int playerLevel;
+    public float playerCurrentXP;
+    public float playerXPToNextLevel;
+
     [Header("Health")]
     public float playerMaxHealth;
     public float playerCurrentHealth;
@@ -24,6 +29,10 @@ public class PlayerMain : MonoBehaviour
 
     public StaminaBar staminaBar;
 
+    [Header("Weight")]
+    public float playerMaxWeight;
+    public float playerCurrentWeight;
+
     [Header("StatText")]
     [SerializeField]
     private TMP_Text playerHealthText;
@@ -40,6 +49,9 @@ public class PlayerMain : MonoBehaviour
     private TMP_Text playerMaxStaminaPreText;
 
     [SerializeField]
+    private TMP_Text playerWeightPreText;
+
+    [SerializeField]
     private string slash;
 
     [SerializeField]
@@ -52,6 +64,11 @@ public class PlayerMain : MonoBehaviour
 
     private void Start()
     {
+        // Leveling
+        playerLevel = 1;
+        playerCurrentXP = 0f;
+        playerXPToNextLevel = 100f;
+
         // Health
         playerCurrentHealth = playerMaxHealth;
         healthBar.SetMaxHealth(playerMaxHealth);
@@ -63,6 +80,9 @@ public class PlayerMain : MonoBehaviour
         // Stamina
         playerCurrentStamina = playerMaxStamina;
         staminaBar.SetMaxStamina(playerMaxStamina);
+
+        // Weight
+        playerCurrentWeight = 0f;
 
         UpdateEquipmentStats();
         TurnOffPreviewStats();
@@ -108,6 +128,35 @@ public class PlayerMain : MonoBehaviour
         playerCurrentArmor = playerMaxArmor;
     }
 
+    public void AddMaxWeight(float amountToChangeStat)
+    {
+        playerMaxWeight += amountToChangeStat;
+    }
+
+    public void AddWeight(float amountToAdd)
+    {
+        playerCurrentWeight += amountToAdd;
+        if (playerCurrentWeight > playerMaxWeight)
+        {
+            playerCurrentWeight = playerMaxWeight;
+        }
+    }
+
+    public void RemoveWeight(float amountToRemove)
+    {
+        playerCurrentWeight -= amountToRemove;
+        if (playerCurrentWeight < 0)
+        {
+            playerCurrentWeight = 0;
+        }
+    }
+
+    public float GetWeightPercentage()
+    {
+        if (playerMaxWeight == 0) return 0f;
+        return playerCurrentWeight / playerMaxWeight;
+    }
+
     public void UpdateEquipmentStats()
     {
         playerHealthText.text = playerCurrentHealth.ToString() + slash + playerMaxHealth.ToString();
@@ -115,11 +164,23 @@ public class PlayerMain : MonoBehaviour
         playerStaminaText.text = playerCurrentStamina.ToString() + slash + playerMaxStamina.ToString();
     }
 
-    public void PreviewEquipmentStats(float playerMaxHealth, float playerMaxArmor, float playerMaxStamina, Sprite itemSprite)
+    public void PreviewEquipmentStats(float playerMaxHealth, float playerMaxArmor, float playerMaxStamina, float weight, Sprite itemSprite)
     {
         playerMaxHealthPreText.text = playerMaxHealth.ToString();
         playerMaxArmorPreText.text = playerMaxArmor.ToString();
         playerMaxStaminaPreText.text = playerMaxStamina.ToString();
+
+        if (playerWeightPreText != null)
+        {
+            if (weight <= 0)
+            {
+                playerWeightPreText.text = "N/A";
+            }
+            else
+            {
+                playerWeightPreText.text = weight.ToString("F1") + "kg";
+            }
+        }
 
         previewImage.sprite = itemSprite;
 

@@ -1,0 +1,23 @@
+﻿using UnityEngine;
+using TMPro;
+
+public class WeightDisplay : MonoBehaviour
+{
+    [SerializeField]
+    private TMP_Text weightText;
+
+    private PlayerMain playerMain;
+
+    private void Start()
+    {
+        playerMain = GameObject.Find("Player").GetComponent<PlayerMain>();
+    }
+
+    private void Update()
+    {
+        if (playerMain != null && weightText != null)
+        {
+            weightText.text = $"{playerMain.playerCurrentWeight:F1}kg / {playerMain.playerMaxWeight:F1}kg";
+        }
+    }
+}

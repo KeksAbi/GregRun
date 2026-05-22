@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Bulletproof Vest
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentSO
   itemName: Bulletproof Vest
-  maxHealth: 0
+  maxHealth: 1
   currentHealth: 0
   maxArmor: 10
   currentArmor: 0
   maxStamina: 0
   currentStamina: 0
+  weight: 20
   itemSprite: {fileID: 21300000, guid: d819446ee4387c342aa478af7c6b2158, type: 3}

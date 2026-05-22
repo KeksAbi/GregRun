@@ -29,7 +29,15 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        inventoryManager = GameObject.Find("Inventory - Canvas").GetComponent<InventoryManager>();
+        GameObject inventoryCanvas = GameObject.Find("Inventory - Canvas");
+        if (inventoryCanvas != null)
+        {
+            inventoryManager = inventoryCanvas.GetComponent<InventoryManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Inventory - Canvas not found in scene!");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,6 +46,22 @@ public class Item : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            // Try to find InventoryManager if not set
+            if (inventoryManager == null)
+            {
+                GameObject inventoryCanvas = GameObject.Find("Inventory - Canvas");
+                if (inventoryCanvas != null)
+                {
+                    inventoryManager = inventoryCanvas.GetComponent<InventoryManager>();
+                }
+            }
+
+            if (inventoryManager == null)
+            {
+                Debug.LogError("InventoryManager not found! Cannot pick up item.");
+                return;
+            }
+
             GetComponent<Collider>().enabled = false;
 
             alreadyPickedUp = true;

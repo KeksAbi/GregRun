@@ -54,6 +54,7 @@
     <Compile Include="Assets\Scripts\PlayerUI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentSOLibrary.cs" />
@@ -77,9 +78,11 @@
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Player\Sliding.cs" />
+    <Compile Include="Assets\Scripts\PlayerUI\WeightDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquippedSlot.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Scripts\Player\SoundCaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

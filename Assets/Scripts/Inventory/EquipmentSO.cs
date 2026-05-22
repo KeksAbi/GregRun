@@ -5,12 +5,13 @@ public class EquipmentSO : ScriptableObject
 {
     public string itemName;
     public float maxHealth, currentHealth, maxArmor, currentArmor, maxStamina, currentStamina;
+    public float weight;
     [SerializeField]
     private Sprite itemSprite;
 
     public void PreviewEquipment()
     {
-        GameObject.Find("Player").GetComponent<PlayerMain>().PreviewEquipmentStats(maxHealth, maxArmor, maxStamina, itemSprite);
+        GameObject.Find("Player").GetComponent<PlayerMain>().PreviewEquipmentStats(maxHealth, maxArmor, maxStamina, weight, itemSprite);
     }
 
     public void EquipItem()
@@ -23,6 +24,7 @@ public class EquipmentSO : ScriptableObject
         playerMain.playerCurrentArmor += currentArmor;
         playerMain.playerMaxStamina += maxStamina;
         playerMain.playerCurrentStamina += currentStamina;
+        playerMain.AddWeight(weight);
 
         playerMain.UpdateEquipmentStats();
     }
@@ -37,6 +39,7 @@ public class EquipmentSO : ScriptableObject
         playerMain.playerCurrentArmor -= currentArmor;
         playerMain.playerMaxStamina -= maxStamina;
         playerMain.playerCurrentStamina -= currentStamina;
+        playerMain.RemoveWeight(weight);
 
         playerMain.UpdateEquipmentStats();
     }

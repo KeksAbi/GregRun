@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af02e2f5f6f12a44bf88171910fa1ac, type: 3}
   m_Name: Mp5
   m_EditorClassIdentifier: 
-  itemName: Mp5
+  itemName: Mp5a4
   statToChange: 0
   amountToChangeStat: 0

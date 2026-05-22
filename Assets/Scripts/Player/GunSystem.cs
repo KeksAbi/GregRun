@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
 public class GunSystem : MonoBehaviour
 {
     [Header("Gun Stats")]
@@ -53,6 +52,20 @@ public class GunSystem : MonoBehaviour
     }
     private void MyInput()
     {
+        // Check if Inventory is open, if yes return early
+        GameObject inventoryCanvas = GameObject.Find("Inventory - Canvas");
+        if (inventoryCanvas != null && inventoryCanvas.transform.childCount > 0)
+        {
+            // Check if any child is active
+            foreach (Transform child in inventoryCanvas.transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    return; // Inventory is open, don't process gun input
+                }
+            }
+        }
+
         if (allowButtonHold) shooting = Input.GetKey(ShootKey);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
@@ -61,10 +74,18 @@ public class GunSystem : MonoBehaviour
 
 
         //Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading)
         {
-            bulletsShot = bulletsPerTap;
-            Shoot();
+            if (bulletsLeft > 0)
+            {
+                bulletsShot = bulletsPerTap;
+                Shoot();
+            }
+            else
+            {
+                // Play empty magazine sound
+                SoundCaller.PlaySound("empty", attackPoint.position);
+            }
         }
     }
     private void Shoot()
@@ -100,6 +121,9 @@ public class GunSystem : MonoBehaviour
         Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
+        //Play Shoot Sound
+        SoundCaller.PlaySound("shoot", attackPoint.position);
+
 
         bulletsLeft--;
         bulletsShot--;
@@ -116,11 +140,14 @@ public class GunSystem : MonoBehaviour
         readyToShoot = true;
     }
     private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-        magText.enabled = false;
-        reloadingText.enabled = true;
+    {   if (!reloading)
+        {
+            reloading = true;
+            SoundCaller.PlaySound("reload", attackPoint.position);
+            Invoke("ReloadFinished", reloadTime);
+            magText.enabled = false;
+            reloadingText.enabled = true;
+        }
     }
     private void ReloadFinished()
     {
