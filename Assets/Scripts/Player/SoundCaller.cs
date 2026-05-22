@@ -5,7 +5,7 @@ public class SoundCaller : MonoBehaviour
     public static void PlaySound(string type, Vector3 position)
     {
         // Get the main hand equipped slot to retrieve the current weapon name
-        EquippedSlot mainHandSlot = GameObject.Find("MainHand-Slot")?.GetComponent<EquippedSlot>();
+        EquippedSlot mainHandSlot = GameObject.Find("MainHandSlot").GetComponent<EquippedSlot>();
 
         if (mainHandSlot == null)
         {

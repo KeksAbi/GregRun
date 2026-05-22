@@ -40,7 +40,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         inventoryManager = GameObject.Find("Inventory - Canvas").GetComponent<InventoryManager>();
         equipmentSOLibrary = GameObject.Find("Inventory - Canvas").GetComponent<EquipmentSOLibrary>();
-        mainHand = GameObject.Find("MainHand");
+        mainHand = GameObject.Find("MainHandPlayer");
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, GameObject itemGameObject, string itemDescription, ItemType itemType)
