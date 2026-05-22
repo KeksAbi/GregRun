@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 280
     height: 370
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 1223
     height: 370
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 15}
@@ -246,8 +246,8 @@ MonoBehaviour:
     y: 370
     width: 1503
     height: 563
-  m_MinSize: {x: 50, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 51, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 18}
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 0
     width: 417
     height: 933
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_Data: 54798
+    m_Data: 54876
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -631,11 +631,11 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 54798
+      - m_Data: 54876
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -1420
+      - m_Data: -1586
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1543,11 +1543,11 @@ MonoBehaviour:
       m_Data: 44696
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 53688
-    - m_Data: 58650
-    - m_Data: 58652
-    - m_Data: 58654
-    - m_Data: 58656
+    - m_Data: 53698
+    - m_Data: 58678
+    - m_Data: 58680
+    - m_Data: 58682
+    - m_Data: 58684
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1581,11 +1581,11 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 53688
-    - m_Data: 58650
-    - m_Data: 58652
-    - m_Data: 58654
-    - m_Data: 58656
+    - m_Data: 53698
+    - m_Data: 58678
+    - m_Data: 58680
+    - m_Data: 58682
+    - m_Data: 58684
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
