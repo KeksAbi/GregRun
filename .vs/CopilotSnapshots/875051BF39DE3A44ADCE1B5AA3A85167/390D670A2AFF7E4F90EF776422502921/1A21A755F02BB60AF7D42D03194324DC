@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +17,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     private Image playerDisplayImage;
 
     [SerializeField]
-    public ItemType itemType = new ItemType();
+    private ItemType itemType = new ItemType();
 
     private Sprite itemSprite;
     public string itemName;

@@ -1,0 +1,48 @@
+﻿using UnityEngine;
+
+public class SoundCaller : MonoBehaviour
+{
+    public static void PlaySound(string type, Vector3 position)
+    {
+        // Get the main hand equipped slot to retrieve the current weapon name
+        EquippedSlot mainHandSlot = null;
+        foreach (EquippedSlot slot in Object.FindObjectsByType<EquippedSlot>(FindObjectsSortMode.None))
+        {
+            if (slot.itemType == ItemType.mainHand)
+            {
+                mainHandSlot = slot;
+                break;
+            }
+        }
+
+        if (mainHandSlot == null)
+        {
+            Debug.LogWarning("MainHand-Slot not found!");
+            return;
+        }
+
+        // Get the currently equipped weapon name
+        string gunName = mainHandSlot.itemName;
+
+        if (string.IsNullOrEmpty(gunName))
+        {
+            Debug.LogWarning("No weapon equipped in main hand!");
+            return;
+        }
+
+        // Build the path: Assets/Sounds/<gunname>/<type>
+        string soundPath = $"Sounds/{gunName}/{gunName}_{type}";
+
+        // Load the audio clip from Resources
+        AudioClip soundClip = Resources.Load<AudioClip>(soundPath);
+
+        if (soundClip == null)
+        {
+            Debug.LogWarning($"Sound not found at path: {soundPath}");
+            return;
+        }
+
+        // Play the sound at the specified position
+        AudioSource.PlayClipAtPoint(soundClip, position);
+    }
+}

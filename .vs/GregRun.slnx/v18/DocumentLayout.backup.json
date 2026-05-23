@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\EquipmentSlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Inventory\\EquipmentSlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\SoundCaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player\\SoundCaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerCam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player\\PlayerCam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\SoundCaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player\\SoundCaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\GunSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,13 +58,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "SoundCaller.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\SoundCaller.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\SoundCaller.cs",
               "ToolTip": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\SoundCaller.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\SoundCaller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-22T20:28:16.92Z",
               "IsPinned": true,
@@ -69,19 +73,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EquipmentSlot.cs",
+              "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\EquipmentSlot.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\EquipmentSlot.cs",
+              "ToolTip": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\EquipmentSlot.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Inventory\\EquipmentSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T22:42:39.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PlayerCam.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerCam.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerCam.cs",
               "ToolTip": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerCam.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerCam.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:40:48.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:40:48.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ItemTooltip.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\ItemTooltip.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\ItemTooltip.cs",
@@ -89,12 +105,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Inventory\\ItemTooltip.cs",
               "ViewState": "AgIAACIAAAAAAAAAAIBJwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:12:53.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:12:53.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "WeightDisplay.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\PlayerUI\\WeightDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerUI\\WeightDisplay.cs",
@@ -102,12 +117,11 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerUI\\WeightDisplay.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:12:27.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:12:27.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "EquipmentSO.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\EquipmentSO.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\EquipmentSO.cs",
@@ -115,12 +129,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Inventory\\EquipmentSO.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:11:02.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:11:02.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PlayerMain.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerMain.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMain.cs",
@@ -128,25 +141,23 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMain.cs",
               "ViewState": "AgIAAJ4AAAAAAAAAAAAhwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:06:08.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:06:08.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
               "ToolTip": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEBAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T21:05:40.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T21:05:40.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\Item.cs",
@@ -154,12 +165,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Inventory\\Item.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAArwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T20:53:20.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T20:53:20.831Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "EquippedSlot.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Inventory\\EquippedSlot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\EquippedSlot.cs",
@@ -167,12 +177,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Inventory\\EquippedSlot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T20:49:14.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T20:49:14.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GunSystem.cs",
               "DocumentMoniker": "C:\\Users\\joema\\Documents\\Coding\\code\\c#\\GregRun\\Assets\\Scripts\\Player\\GunSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\GunSystem.cs",
@@ -180,8 +189,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\GunSystem.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAUwDQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T20:26:50.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T20:26:50.463Z"
             }
           ]
         }
